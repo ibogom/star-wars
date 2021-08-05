@@ -1,6 +1,7 @@
 import React, { memo, ReactChildren, ReactElement } from "react";
 import cn from "classnames";
-import { Card, Col, List, Row, Typography } from "antd";
+import { Card, Col, List, Row, Typography, Button } from "antd";
+import { LeftOutlined } from "@ant-design/icons";
 import { useParams, NavLink } from "react-router-dom";
 import { LegendResponse, StarshipResponse, PlanetResponse } from "api/types";
 import { Loader } from "common";
@@ -99,7 +100,16 @@ const Item = ({ useAction, children }: ItemProps) => {
       {typeof children === "function" ? children(item) : children}
       <Card
         className={styles.wrapper}
-        title={<Text data-testid="legend-title">{item.name}</Text>}
+        title={
+          <span>
+            <Button
+              className={styles.back}
+              icon={<LeftOutlined />}
+              onClick={() => history.back()}
+            />
+            <Text data-testid="legend-title">{item.name}</Text>
+          </span>
+        }
         extra={<AddToFavoritesButton id={item.id} />}
       >
         <List
