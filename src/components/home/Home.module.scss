@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .title {
+    text-align: center;
+    margin-top: var(--b-size-s);
+  }
+
+  .cards {
+    display: flex;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: var(--b-size-xs) auto;
+    box-sizing: border-box;
+  }
+
+  .card {
+    width: 240px;
+    height: 240px;
+    margin: var(--b-size-xxs);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .wrapper {
+    .cards {
+      flex-direction: column;
+      justify-content: center;
+      max-width: 100%;
+    }
+
+    .card {
+      margin-bottom: var(--b-size-l);
+    }
+  }
+}

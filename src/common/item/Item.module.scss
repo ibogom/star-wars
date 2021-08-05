@@ -1,0 +1,31 @@
+.wrapper {
+  :global(.ant-list-lg .ant-list-item) {
+    padding: 0;
+  }
+}
+
+.item {
+  width: 100%;
+}
+
+.col {
+  width: 50%;
+  padding: var(--b-size-xxs) var(--b-size-xs);
+}
+
+.key {
+  background-color: var(--b-color-ui-2);
+  border-bottom: 1px solid var(--b-color-ui-1);
+}
+
+.value {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}

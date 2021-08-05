@@ -1,0 +1,26 @@
+.layout {
+  .title {
+    color: var(--b-color-ui-1);
+    margin-bottom: 0;
+  }
+
+  .header,
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header {
+    height: 55px;
+  }
+
+  .footer {
+    height: 20px;
+  }
+
+  .content {
+    min-height: calc(100vh - 75px - var(--b-size-xxs));
+    padding: var(--b-size-xxs);
+  }
+}

@@ -1,0 +1,26 @@
+:root {
+    --b-color-ui-1: #fff;
+    --b-color-ui-2: #f1f1f9;
+    --b-color-ui-3: #000;
+    --b-color-ui-4: #d9d9d9;
+    --b-color-ui-5: #8c8c8c;
+
+    --b-size-xxs: 8px;
+    --b-size-xs: 16px;
+    --b-size-s: 24px;
+    --b-size-m: 32px;
+    --b-size-l: 64px;
+    --b-size-xl: 80px;
+    --b-font-size-xxs: 14px;
+    --b-font-size-xs: 16px;
+    --b-font-size-s: 18px;
+    --b-font-size-m: 20px;
+    --b-font-size-l: 30px;
+    --b-font-size-xl: 40px;
+    --b-line-height-xxs: 20px;
+    --b-line-height-xs: 24px;
+    --b-line-height-s: 28px;
+    --b-line-height-m: 32px;
+    --b-line-height-l: 40px;
+    --b-line-height-xl: 48px;
+}
