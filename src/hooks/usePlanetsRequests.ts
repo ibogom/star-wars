@@ -13,28 +13,32 @@ export const usePlanets = (page: number): PlanetsResponse | null => {
   const api = useApi();
 
   const asyncFn = useCallback(async () => {
-    const response = await api.getPlanets(page);
+    try {
+      const response = await api.getPlanets(page);
 
-    const data = {
-      ...response,
-      results: response.results.map((item, idx) => {
-        const path: RegExpMatchArray | null = item.url.match(/(\d+)/g);
+      const data = {
+        ...response,
+        results: response.results.map((item, idx) => {
+          const path: RegExpMatchArray | null = item.url.match(/(\d+)/g);
 
-        return {
-          ...item,
-          id: `${item.name}-${path ? path[0] : ""}`,
-          path: path ? path[0] : "",
-          idx,
-        };
-      }),
-    };
+          return {
+            ...item,
+            id: `${item.name}-${path ? path[0] : ""}`,
+            path: path ? path[0] : "",
+            idx,
+          };
+        }),
+      };
 
-    setPlanets(data);
+      setPlanets(data);
 
-    dispatch({
-      type: GET_PLANETS,
-      payload: data,
-    });
+      dispatch({
+        type: GET_PLANETS,
+        payload: data,
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }, [api, page, dispatch]);
 
   useEffect(() => {
@@ -51,17 +55,21 @@ export const usePlanet = (id: string): PlanetResponse | null => {
   const api = useApi();
 
   const asyncFn = useCallback(async () => {
-    const response = await api.getPlanet(id);
+    try {
+      const response = await api.getPlanet(id);
 
-    const path: RegExpMatchArray | null = response.url.match(/(\d+)/g);
+      const path: RegExpMatchArray | null = response.url.match(/(\d+)/g);
 
-    const data = {
-      ...response,
-      id: `${response.name}-${path ? path[0] : ""}`,
-      path: path ? path[0] : "",
-    };
+      const data = {
+        ...response,
+        id: `${response.name}-${path ? path[0] : ""}`,
+        path: path ? path[0] : "",
+      };
 
-    setPlanet(data);
+      setPlanet(data);
+    } catch (err) {
+      console.error(err);
+    }
   }, [api, id]);
 
   useEffect(() => {

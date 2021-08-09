@@ -13,28 +13,32 @@ export const useStarships = (page: number): StarshipsResponse | null => {
   const api = useApi();
 
   const asyncFn = useCallback(async () => {
-    const response = await api.getStarships(page);
+    try {
+      const response = await api.getStarships(page);
 
-    const data = {
-      ...response,
-      results: response.results.map((item, idx) => {
-        const path: RegExpMatchArray | null = item.url.match(/(\d+)/g);
+      const data = {
+        ...response,
+        results: response.results.map((item, idx) => {
+          const path: RegExpMatchArray | null = item.url.match(/(\d+)/g);
 
-        return {
-          ...item,
-          id: `${item.name}-${path ? path[0] : ""}`,
-          path: path ? path[0] : "",
-          idx,
-        };
-      }),
-    };
+          return {
+            ...item,
+            id: `${item.name}-${path ? path[0] : ""}`,
+            path: path ? path[0] : "",
+            idx,
+          };
+        }),
+      };
 
-    setStarships(data);
+      setStarships(data);
 
-    dispatch({
-      type: GET_STARSHIPS,
-      payload: data,
-    });
+      dispatch({
+        type: GET_STARSHIPS,
+        payload: data,
+      });
+    } catch (err) {
+      console.error(err);
+    }
   }, [api, page, dispatch]);
 
   useEffect(() => {
@@ -51,17 +55,21 @@ export const useStarship = (id: string): StarshipResponse | null => {
   const api = useApi();
 
   const asyncFn = useCallback(async () => {
-    const response = await api.getStarship(id);
+    try {
+      const response = await api.getStarship(id);
 
-    const path: RegExpMatchArray | null = response.url.match(/(\d+)/g);
+      const path: RegExpMatchArray | null = response.url.match(/(\d+)/g);
 
-    const data = {
-      ...response,
-      id: `${response.name}-${path ? path[0] : ""}`,
-      path: path ? path[0] : "",
-    };
+      const data = {
+        ...response,
+        id: `${response.name}-${path ? path[0] : ""}`,
+        path: path ? path[0] : "",
+      };
 
-    setStarship(data);
+      setStarship(data);
+    } catch (err) {
+      console.error(err);
+    }
   }, [api, id]);
 
   useEffect(() => {
