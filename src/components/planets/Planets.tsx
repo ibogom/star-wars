@@ -4,7 +4,7 @@ import { usePlanets } from "hooks/usePlanetsRequests";
 import { useTranslation } from "react-i18next";
 import { ItemsList, AddToFavoritesButton } from "common";
 import { NavLink } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import moment from "moment";
 
 const { Link, Text, Title } = Typography;

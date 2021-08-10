@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Typography, Card } from "antd";
 import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 import StarshipPng from "./img/starship.png";
 import PersonPng from "./img/person.png";

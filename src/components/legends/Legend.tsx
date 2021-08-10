@@ -4,7 +4,7 @@ import { useLegend } from "hooks/useLegendsRequests";
 import { NavLink } from "react-router-dom";
 import { Item } from "common";
 import { useTranslation } from "react-i18next";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Legend = () => {
   const { t } = useTranslation();

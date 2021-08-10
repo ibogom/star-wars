@@ -3,7 +3,7 @@ import { Typography, Breadcrumb, Row, Col } from "antd";
 import { useLegends } from "hooks/useLegendsRequests";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { ItemsList, AddToFavoritesButton } from "common";
 import moment from "moment";
 

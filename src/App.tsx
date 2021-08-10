@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import { Layout, Typography } from "antd";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { HelmetProvider } from "react-helmet-async";
 import { AppContext } from "context/AppContext";
 import reducer from "store";
 
@@ -33,30 +34,32 @@ function App() {
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
-      <Layout className={styles.layout}>
-        <Header className={styles.header}>
-          <Title className={styles.title} level={3}>
-            {t("header.title")}
-          </Title>
-        </Header>
-        <Content className={styles.content}>
-          <Router>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/people" component={Legends} />
-              <Route exact path="/people/:id" component={Legend} />
-              <Route exact path="/planets" component={Planets} />
-              <Route exact path="/planets/:id" component={Planet} />
-              <Route exact path="/starships" component={Starships} />
-              <Route exact path="/starships/:id" component={Starship} />
-              <Route component={NotFound} />
-            </Switch>
-          </Router>
-        </Content>
-        <Footer className={styles.footer}>
-          {t("footer.content", { year: new Date().getFullYear() })}
-        </Footer>
-      </Layout>
+      <HelmetProvider>
+        <Layout className={styles.layout}>
+          <Header className={styles.header}>
+            <Title className={styles.title} level={3}>
+              {t("header.title")}
+            </Title>
+          </Header>
+          <Content className={styles.content}>
+            <Router>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/people" component={Legends} />
+                <Route exact path="/people/:id" component={Legend} />
+                <Route exact path="/planets" component={Planets} />
+                <Route exact path="/planets/:id" component={Planet} />
+                <Route exact path="/starships" component={Starships} />
+                <Route exact path="/starships/:id" component={Starship} />
+                <Route component={NotFound} />
+              </Switch>
+            </Router>
+          </Content>
+          <Footer className={styles.footer}>
+            {t("footer.content", { year: new Date().getFullYear() })}
+          </Footer>
+        </Layout>
+      </HelmetProvider>
     </AppContext.Provider>
   );
 }
