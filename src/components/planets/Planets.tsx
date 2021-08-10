@@ -3,11 +3,11 @@ import { Breadcrumb, Col, Row, Typography } from "antd";
 import { usePlanets } from "hooks/usePlanetsRequests";
 import { useTranslation } from "react-i18next";
 import { ItemsList, AddToFavoritesButton } from "common";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import moment from "moment";
 
-const { Link, Text, Title } = Typography;
+const { Text, Title } = Typography;
 
 const Planets = () => {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ const Planets = () => {
       title: t("planets.table.name.title"),
       dataIndex: "name",
       render: ({ name, path }: { name: string; path: number }) => (
-        <Link href={`/planets/${path}`}>{name}</Link>
+        <Link to={`/planets/${path}`}>{name}</Link>
       ),
     },
     {
@@ -74,7 +74,7 @@ const Planets = () => {
           </Helmet>
           <Breadcrumb>
             <Breadcrumb.Item>
-              <NavLink to="">{t("breadcrumb.home")}</NavLink>
+              <Link to="">{t("breadcrumb.home")}</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>{t("breadcrumb.planets")}</Breadcrumb.Item>
           </Breadcrumb>

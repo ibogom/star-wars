@@ -2,7 +2,7 @@ import React, { memo, ReactChildren, ReactElement } from "react";
 import cn from "classnames";
 import { Card, Col, List, Row, Typography, Button } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { LegendResponse, StarshipResponse, PlanetResponse } from "api/types";
 import { Loader } from "common";
 import { AddToFavoritesButton } from "common";
@@ -36,13 +36,13 @@ const Item = ({ useAction, children }: ItemProps) => {
         {links.map((link: string, idx: number) => {
           const href = link.replace("https://swapi.dev/api/", "/");
           return (
-            <NavLink
+            <Link
               data-testid={`link-${href.replace("/", "")}`}
               key={idx}
               to={href}
             >
               {href.replace("/", "")}
-            </NavLink>
+            </Link>
           );
         })}
       </div>

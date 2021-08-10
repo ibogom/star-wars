@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Breadcrumb } from "antd";
 import { useLegend } from "hooks/useLegendsRequests";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Item } from "common";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
@@ -22,10 +22,10 @@ const Legend = () => {
                 </Helmet>
                 <Breadcrumb>
                   <Breadcrumb.Item>
-                    <NavLink to="">{t("breadcrumb.home")}</NavLink>
+                    <Link to="">{t("breadcrumb.home")}</Link>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item>
-                    <NavLink to="/people">{t("breadcrumb.legends")}</NavLink>
+                    <Link to="/people">{t("breadcrumb.legends")}</Link>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item>
                     {t("breadcrumb.legend", { name: item.name })}

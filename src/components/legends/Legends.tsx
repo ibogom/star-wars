@@ -2,12 +2,12 @@ import React from "react";
 import { Typography, Breadcrumb, Row, Col } from "antd";
 import { useLegends } from "hooks/useLegendsRequests";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ItemsList, AddToFavoritesButton } from "common";
 import moment from "moment";
 
-const { Link, Text, Title } = Typography;
+const { Text, Title } = Typography;
 
 const Legends = () => {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ const Legends = () => {
       title: t("legends.table.name.title"),
       dataIndex: "name",
       render: ({ name, path }: { name: string; path: number }) => (
-        <Link data-testid={`name-${path}`} href={`/people/${path}`}>
+        <Link data-testid={`name-${path}`} to={`/people/${path}`}>
           {name}
         </Link>
       ),
@@ -64,7 +64,7 @@ const Legends = () => {
           </Helmet>
           <Breadcrumb>
             <Breadcrumb.Item>
-              <NavLink to="">{t("breadcrumb.home")}</NavLink>
+              <Link to="">{t("breadcrumb.home")}</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>{t("breadcrumb.legends")}</Breadcrumb.Item>
           </Breadcrumb>

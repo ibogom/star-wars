@@ -3,12 +3,12 @@ import { Breadcrumb, Col, Row, Typography } from "antd";
 import { useStarships } from "hooks/useStarshipsRequests";
 import { useTranslation } from "react-i18next";
 import { ItemsList, AddToFavoritesButton } from "common";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 import moment from "moment";
 
-const { Link, Text, Title } = Typography;
+const { Text, Title } = Typography;
 
 const Starships = () => {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ const Starships = () => {
       title: t("starships.table.name.title"),
       dataIndex: "name",
       render: ({ name, path }: { name: string; path: number }) => (
-        <Link href={`/starships/${path}`}>{name}</Link>
+        <Link to={`/starships/${path}`}>{name}</Link>
       ),
     },
     {
@@ -75,7 +75,7 @@ const Starships = () => {
           </Helmet>
           <Breadcrumb>
             <Breadcrumb.Item>
-              <NavLink to="">{t("breadcrumb.home")}</NavLink>
+              <Link to="">{t("breadcrumb.home")}</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>{t("breadcrumb.starships")}</Breadcrumb.Item>
           </Breadcrumb>

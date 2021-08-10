@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Breadcrumb } from "antd";
 import { usePlanet } from "hooks/usePlanetsRequests";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Item } from "common";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
@@ -22,10 +22,10 @@ const Planet = () => {
                 </Helmet>
                 <Breadcrumb>
                   <Breadcrumb.Item>
-                    <NavLink to="">{t("breadcrumb.home")}</NavLink>
+                    <Link to="">{t("breadcrumb.home")}</Link>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item>
-                    <NavLink to="/planets">{t("breadcrumb.planets")}</NavLink>
+                    <Link to="/planets">{t("breadcrumb.planets")}</Link>
                   </Breadcrumb.Item>
                   <Breadcrumb.Item>
                     {t("breadcrumb.planet", { name: item.name })}
